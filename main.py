@@ -22,11 +22,6 @@ formatter = logging.Formatter(
 logger_file_handler.setFormatter(formatter)
 logger.addHandler(logger_file_handler)
 
-try:
-    SOME_SECRET = os.environ["SOME_SECRET"]
-except KeyError:
-    SOME_SECRET = "Token not available!"
-
 airportcodes = open("src/AirportCodes.txt", "r")
 
 with open('src/idtomodel.txt', mode='r') as inp:
@@ -82,7 +77,6 @@ def longlat(icao, firstSeen):
 def main():
     arrived = []
     CarbonEmissions = 0
-    logger.info(f"Token value: {SOME_SECRET}")
     # Epoch time for start->end of yesterday
     today = datetime.date.today()
     yesterday = today - datetime.timedelta(days=1)
@@ -114,8 +108,7 @@ def main():
                 CO2 = (gallons * 21.1) / 2000
                 CarbonEmissions += CO2
 
-    logger.info(
-        f'C02 emissions were: {round(CarbonEmissions * 907.185, 2)} Kg')
+    logger.info(f'C02 emissions were: {round(CarbonEmissions * 907.185, 2)} Kg')
 
 
 # Want the script to be callable on import

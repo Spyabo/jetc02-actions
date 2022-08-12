@@ -5,7 +5,6 @@ import json
 import csv
 import logging
 import logging.handlers
-import os
 from math import radians, cos, sin, asin, sqrt
 from src.jetList import *
 

@@ -107,8 +107,8 @@ def main():
                 CO2 = (gallons * 21.1) / 2000
                 CarbonEmissions += CO2
 
-    logger.info(f'C02 emissions were: {round(CarbonEmissions * 907.185, 2)} Kg')
+    logger.info(f'C02 emissions were: {(round(CarbonEmissions * 907.185, 2)):,} Kg')
 
 
-# Want the script to be callable on import
-main()
+if __name__ == "__main__":
+    main()

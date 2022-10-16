@@ -39,10 +39,13 @@ def idtomodel(icao):
 
 def fuel(model):
     for each in data:
-        if model in each['Name']:
-            return each["Fuel Burn (Hour)"]
-        else:
-            pass
+        try:
+            if model in each['Name']:
+                return each["Fuel Burn (Hour)"]
+            else:
+                pass
+        except:
+            NoneType
 
 
 def haversine(lon1, lat1, lon2, lat2):
